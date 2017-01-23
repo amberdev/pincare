@@ -1,0 +1,227 @@
+*{
+	margin:0px; 
+	padding:0px;
+	-webkit-box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	box-sizing:border-box;
+}
+html , body{
+	overflow-x:hidden; 
+	width:100%; 
+    height:100%;
+	position:relative; 
+	display:table;
+	font:400 15px 'sf_ui_textlight', sans-serif;
+    color:#2a2f34;
+}
+a{text-decoration:none; color:#000;}
+ul, li{list-style:none;}
+img{border:0px; max-width:100%;}
+input, select, textarea{font-family:'sf_ui_textlight', sans-serif; border:none;}
+.clear{clear:both;}
+h1, h2, h3, h4, h5, h6{font-family:'sf_ui_textlight', serif; margin:0px; padding:0px;}
+p{line-height:26px;}
+button{border:none; cursor:pointer;}
+
+@font-face {
+    font-family: 'sf_ui_textregular';
+    src: url('fonts/sf-ui-text-regular-webfont.woff2') format('woff2'),
+         url('fonts/sf-ui-text-regular-webfont.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+    font-family: 'sf_ui_textlight';
+    src: url('fonts/sf-ui-text-light-webfont.woff2') format('woff2'),
+         url('fonts/sf-ui-text-light-webfont.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+
+.wrapper{max-width:1120px; margin:auto;}
+
+.space10{padding:10px 0px 0px 0px;}
+.space20{padding:20px 0px 0px 0px;}
+.space30{padding:30px 0px 0px 0px;}
+.space40{padding:40px 0px 0px 0px;}
+.space50{padding:50px 0px 0px 0px;}
+
+.input{height:70px; padding:0px 10px; width:100%; border-bottom:1px solid #2a2f34;}
+.input:focus{outline:inherit;}
+input[type=submit]{cursor:pointer;}
+
+.button{
+    width:auto;
+    min-width:180px;
+    display:table;
+    height:46px;
+    background:#2a2f34;
+    padding:0px 30px;
+    line-height:46px;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    font-weight:300;
+}
+.button:hover{background:#1b1e22;}
+
+.wrapper{max-width:1170px; margin:auto;}
+
+.input-box{width:100%; display:table; margin:0px 0px 20px 0px;}
+.input-box input{font-size:24px;}
+/* login box starts here */
+.login-box{
+    width:90%;
+    max-width:500px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    -ms-transform:translate(-50%,-50%); 
+    -moz-transform:translate(-50%,-50%); 
+    -webkit-transform:translate(-50%,-50%); 
+    transform: translate(-50%,-50%);
+}
+.login-box h1{text-align:center; font-weight:300; font-size:40px;}
+.login-box b{color:#fbab1e; font-weight:300;}
+.login-box input.button{font-size:18px; margin:auto;}
+/* login box ends here */
+
+/* leftmenu starts here */
+.leftmenu{width:260px; height:100%; display:table; background:#fbab1e; float:left;}
+.leftmenu ul{
+    position:absolute;
+    width:100%;
+    top:50%;
+    left:50%;
+    -ms-transform:translate(-50%,-50%); 
+    -moz-transform:translate(-50%,-50%); 
+    -webkit-transform:translate(-50%,-50%); 
+    transform: translate(-50%,-50%);
+}
+.leftmenu ul li{}
+.leftmenu ul li a{
+    text-transform:uppercase; 
+    line-height:40px; 
+    font-size:20px;
+    padding:0px 0px 0px 30px;
+    font-family:'sf_ui_textregular';
+    color:#768386;
+}
+.leftmenu ul li a.active{color:#282828;}
+/* leftmenu ends here */
+
+/* right container starts here */
+.right-container{width: calc(100% - 260px); float:left;}
+.form-container{max-width:500px; margin:50px 0px 0px 50px;}
+.form-container input[type=submit]{color:#fbab1e; text-transform:uppercase;}
+
+.add-story-container{max-width:700px; margin:50px 0px 0px 50px;}
+.add-story-container .input{background:#768386; height:48px; color:#fff; border-bottom:none; float:left; width:88%;}
+.delete-btn{
+    width:39px;
+    height:48px;
+    background:url(../images/delete-icon.png) no-repeat;
+    display:block;
+    float:right;
+}
+/* right container ends here */
+
+/* pincare business sec starts here */
+.pincare-business-sec{
+    position:absolute;
+    width:100%;
+    top:50%;
+    left:50%;
+    -ms-transform:translate(-50%,-50%); 
+    -moz-transform:translate(-50%,-50%); 
+    -webkit-transform:translate(-50%,-50%); 
+    transform: translate(-50%,-50%);
+}
+.pincare-business-sec-left{width:50%; float:left;}
+.pincare-business-sec-left h1{font-weight:300; font-size:40px;}
+.pincare-business-sec-left h1 b{color:#fbab1e; font-weight:400;}
+.pincare-business-sec-left p{
+    font-size:22px; 
+    line-height:30px;
+}
+.pincare-business-sec-left p b{font-family:'sf_ui_textregular';}
+.pincare-business-sec-left p i{font-family:'sf_ui_textregular'; font-style:normal;}
+
+.pincare-business-sec-right{width:43%; float:right;}
+.pincare-business-sec-right input[type=submit]{color:#fbab1e; text-transform:uppercase;}
+/* pincare business sec ends here */
+
+/* pincare promotion starts here */
+.pincare-promotion-sec{
+    text-align:center;
+    max-width:500px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -ms-transform:translate(-50%,-50%); 
+    -moz-transform:translate(-50%,-50%); 
+    -webkit-transform:translate(-50%,-50%); 
+    transform: translate(-50%,-50%);
+}
+.pincare-promotion-sec .ios-btn{color:#fbab1e; margin:auto;}
+.hindi-text{position:relative; margin-top:-70px; max-width:450px;}
+.pincare-promotion-sec p{font-size:28px; line-height:36px; position:relative; margin-top:-60px;}
+.social-icons{display:table; margin:auto;}
+.social-icons a{
+    display:table;
+    float:left;
+    width:50px;
+    height:50px;
+}
+.social-icons a.fb-icon{background:url(../images/fb-icon.png) no-repeat; margin:0px 20px 0px 0px;}
+.social-icons a.inst-icon{background:url(../images/instagram-icon.png) no-repeat;}
+/* pincare promotion ends here */
+
+/* manage pins sec starts here */
+.manage-pins-sec{max-width:700px; margin:50px 0px 0px 50px;}
+.manage-pins-field{}
+.manage-pins-field label{float:left; margin:0px 5% 0px 0px; font-size:26px; line-height:70px;}
+.manage-pins-field .input{float:left; width:10%; font-size:24px;}
+
+.manage-pin-state{width:100%; display:table;}
+.manage-pin-state button{font-size:30px; background:none;}
+.update-btn{color:#fbab1e; text-transform:uppercase;}
+/* manage pins ends here */
+
+.back-btn{
+    position:absolute;
+    bottom:30px;
+    right:30px;
+    font-size:30px;
+    color:#fbab1e;
+}
+
+/* media query starts here */
+@media (max-width:1100px){
+    .wrapper{padding:20px; display:table;}
+}
+@media (max-width:750px){
+    .pincare-business-sec{
+        position:inherit;
+        width:100%;
+        top:0px;
+        left:0px;
+        -ms-transform:translate(0%,-0%); 
+        -moz-transform:translate(0%,0%); 
+        -webkit-transform:translate(0%,0%); 
+        transform: translate(0%,0%);
+    }
+    .pincare-business-sec-left, .pincare-business-sec-right{width:100%;}
+    .pincare-promotion-sec{
+        position:inherit;
+        width:100%;
+        top:0px;
+        left:0px;
+        -ms-transform:translate(0%,-0%); 
+        -moz-transform:translate(0%,0%); 
+        -webkit-transform:translate(0%,0%); 
+        transform: translate(0%,0%);
+    }
+    .hindi-text{width:inherit;}
+    .back-btn{bottom:10px; right:10px; font-size:20px;}
+}

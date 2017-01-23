@@ -3,16 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	 function __construct()
+	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
 		
 	}
-
 	public function index()
 	{
-		$this->load->view('home');
+		$this->load->view('admin/login');
 	}
 }
