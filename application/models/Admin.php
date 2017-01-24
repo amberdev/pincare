@@ -30,5 +30,10 @@ class Admin extends CI_Model
 		}
 	}
 
+	function add_outlets($data)
+	{
+		$this->db->insert('tbl_outlets',$data);
+	}
+
 
 }

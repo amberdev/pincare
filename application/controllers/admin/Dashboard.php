@@ -43,6 +43,7 @@ class Dashboard extends CI_Controller {
 			$this->form_validation->set_rules('country', 'Country', 'required');
 			$this->form_validation->set_rules('logni', 'Longitude', 'required');
 			$this->form_validation->set_rules('lati', 'Latitude', 'required');
+			$this->form_validation->set_rules('fb_page_id', 'Facebook Page ID', 'required');
 			
 			if ($this->form_validation->run() == FALSE)
             {
@@ -53,7 +54,7 @@ class Dashboard extends CI_Controller {
             {
 
             	$base_url=$_SERVER['DOCUMENT_ROOT']."/public/upload/";
-            	echo $base_url;
+            	
 				$config['upload_path']   = $base_url; 
 				$config['allowed_types'] = 'gif|jpg|png'; 
 				$config['max_size']      = 100; 
@@ -70,13 +71,28 @@ class Dashboard extends CI_Controller {
 				}
 				else 
 				{ 
-					$data = array('upload_data' => $this->upload->data()); 
+						 
+						//$data = array('upload_data' => $this->upload->data()); 
+						//$logo_name=$data['upload_data']['file_name'];
+						$logo_name="asdfasf";
+						$outlet_id=$this->input->post('outlet_id');
+						$password=$this->input->post('password');
+						$outlet_name=$this->input->post('outlet_name');
+						$address=$this->input->post('address');
+						$city=$this->input->post('city');
+						$zip=$this->input->post('zip');
+						$country=$this->input->post('country');
+						$longitude=$this->input->post('logni');
+						$latitude=$this->input->post('lati');
+						$fb_page_id=$this->input->post('fb_page_id');
 
-					print_r($data);die;
+						$post_data=array('login_id'=>$outlet_id,'password'=>$password,'outlet_name'=>$outlet_name,'address'=>$address,'city'=>$city,'country'=>$country,'zip'=>$zip,'longitude'=>$longitude,'latitude'=>$latitude,'fb_page_id'=>$fb_page_id,'logo'=>$logo_name);
 
+						$this->admin->add_outlets($post_data);
+						
+						redirect('admin/dashboard/manage_outlets');
 
-					// $data_array=array('event_id'=>$events_id,'photo'=>$data['upload_data']['file_name'],'caption'=>$_POST['caption']);
-					// $this->eventmodel->saveImage($data_array);
+					
 					
 				}
             }
