@@ -35,11 +35,15 @@ $(document).ready(function(){
     },
      
     messages: {
-      outlet_id: "Please enter your phone number",
-      password: "Please enter address",
-      outlet_name: "Please enter country",
-      address: "Please enter city",
-      fb_page_id: "Please enter zip" 
+      outlet_id: "Please enter outlet id (Which will be your login id!)",
+      password: "Please enter your password",
+      outlet_name: "Please enter your outlet name",
+      address: "Please enter address",
+      city : "Please enter city",
+      country: "Please enter country",
+      logni:"Please enter your outlet longitude",
+      lati:"Please enter your outlet latitude",
+      fb_page_id: "Please enter your facebook page id or page url" 
     },
     
     submitHandler: function(form) {
