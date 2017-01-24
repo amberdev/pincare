@@ -53,7 +53,7 @@ class Dashboard extends CI_Controller {
             {
 
             	$base_url=$_SERVER['DOCUMENT_ROOT']."/pincare.in/pincare/public/upload/";
-            	 
+            	echo $base_url;
 				$config['upload_path']   = $base_url; 
 				$config['allowed_types'] = 'gif|jpg|png'; 
 				$config['max_size']      = 100; 
