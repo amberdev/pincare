@@ -52,7 +52,7 @@ class Dashboard extends CI_Controller {
             else
             {
 
-            	$base_url=$_SERVER['DOCUMENT_ROOT']."/pincareapi/public/upload/";
+            	$base_url=$_SERVER['DOCUMENT_ROOT']."/pincare.in/pincare/public/upload/";
             	 
 				$config['upload_path']   = $base_url; 
 				$config['allowed_types'] = 'gif|jpg|png'; 
@@ -64,7 +64,7 @@ class Dashboard extends CI_Controller {
 				if (!$this->upload->do_upload('logo')) 
 				{
 					$error = array('error' => $this->upload->display_errors()); 
-					
+
 					print_r($error);
 					//$this->load->view('admin/upload_image', $error); 
 				}
