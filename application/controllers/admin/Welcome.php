@@ -25,7 +25,7 @@ class Welcome extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('admin/welcome/login');
+		$this->load->view('admin/login');
 	}
 
 	public function login()
