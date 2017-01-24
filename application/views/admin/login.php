@@ -20,7 +20,7 @@
 <!-- login starts here -->
 <div class="login-box">
 
-    <form name="admin_login" action="welcome/login" method="post">
+    <form name="admin_login" action="<?php echo base_url();?>admin/welcome/login" method="post">
 
         <h1>pincare <b>admin</b></h1>
         <div class="clear space30"></div>
