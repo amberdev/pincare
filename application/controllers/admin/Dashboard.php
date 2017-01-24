@@ -72,9 +72,9 @@ class Dashboard extends CI_Controller {
 				else 
 				{ 
 						 
-						//$data = array('upload_data' => $this->upload->data()); 
-						//$logo_name=$data['upload_data']['file_name'];
-						$logo_name="asdfasf";
+						$data = array('upload_data' => $this->upload->data()); 
+						$logo_name=$data['upload_data']['file_name'];
+						 
 						$outlet_id=$this->input->post('outlet_id');
 						$password=$this->input->post('password');
 						$outlet_name=$this->input->post('outlet_name');
