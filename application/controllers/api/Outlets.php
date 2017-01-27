@@ -49,15 +49,14 @@ class Outlets extends REST_Controller {
 
 
         $data=$this->outletsapi->search_outlets();
-
+        
+         
         if(!empty($data))
         {
-            $data['status']="success";
+            $data[]['status']='success';
+
             $this->response($data, REST_Controller::HTTP_OK);
         }
-
-
-         
     }
 
     public function users_post()
