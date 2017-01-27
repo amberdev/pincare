@@ -35,5 +35,10 @@ class Admin extends CI_Model
 		$this->db->insert('tbl_outlets',$data);
 	}
 
+	function add_story($data)
+	{
+		$this->db->insert('tbl_story',$data);
+	}
+
 
 }
