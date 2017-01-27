@@ -91,10 +91,7 @@ class Dashboard extends CI_Controller {
 
 						$this->admin->add_outlets($post_data);
 						
-						redirect('admin/dashboard/manage_outlets');
-
-					
-					
+						redirect('admin/dashboard/add_outlets');
 				}
             }
 		}
