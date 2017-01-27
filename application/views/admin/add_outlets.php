@@ -62,8 +62,8 @@ $(document).ready(function(){
 <div class="leftmenu">
     
     <ul>
-        <li><a href="#" class="active">Add Outlet</a></li>
-        <li><a href="#">Add Story</a></li>
+        <li><a href="<?php echo base_url();?>admin/dashboard/add_outlets" class="active">Add Outlet</a></li>
+        <li><a href="<?php echo base_url();?>admin/dashboard/add_story">Add Story</a></li>
     </ul>
     
 </div>  
