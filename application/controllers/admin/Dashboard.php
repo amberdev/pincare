@@ -31,6 +31,7 @@ class Dashboard extends CI_Controller {
 
 	public function add_outlets()
 	{
+
 		if($this->input->post('submit')!='')
 		{
 
@@ -97,6 +98,7 @@ class Dashboard extends CI_Controller {
 				}
             }
 		}
+		$this->load->view('admin/add_outlets');
 	}
 
 
