@@ -99,6 +99,43 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+
+	public function add_story()
+	{
+
+		if($this->input->post('add')!='')
+		{
+			
+            	$base_url=$_SERVER['DOCUMENT_ROOT']."/public/upload/";
+            	
+				$config['upload_path']   = $base_url; 
+				$config['allowed_types'] = 'gif|jpg|png'; 
+				$config['max_size']      = 100; 
+				$config['max_width']     = 1024; 
+				$config['max_height']    = 1024; 
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('story')) 
+				{
+					$error = array('error' => $this->upload->display_errors()); 
+					print_r($error);
+					//$this->load->view('admin/upload_image', $error); 
+				}
+				else 
+				{
+					$data = array('upload_data' => $this->upload->data()); 
+					$story_name="pincare.in/public/upload/".$data['upload_data']['file_name'];
+
+					$data=array('story_image'=>$story_name);
+					$this->admin->add_story($data);
+					redirect('admin/dashboard/add_story');
+				}
+            
+		}
+
+		$this->load->view('admin/add_story');
+	}
+
 	public function login()
 	{
 		if($this->input->post('submit')!='')
