@@ -73,7 +73,7 @@ class Dashboard extends CI_Controller {
 				{ 
 						 
 						$data = array('upload_data' => $this->upload->data()); 
-						$logo_name=$data['upload_data']['file_name'];
+						$logo_name="pincare.in/public/upload/".$data['upload_data']['file_name'];
 						 
 						$outlet_id=$this->input->post('outlet_id');
 						$password=$this->input->post('password');
