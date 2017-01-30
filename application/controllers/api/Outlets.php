@@ -38,7 +38,7 @@ class Outlets extends REST_Controller {
     }
 
 
-    public function outlets_get()
+    public function outlets_post()
     {
         // Users from a data store e.g. database
 
