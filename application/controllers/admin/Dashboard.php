@@ -118,7 +118,7 @@ class Dashboard extends CI_Controller {
 
 				$data=array('outlet_id'=>$outlets,'checkin_per_day'=>$check_per_day,'amount_checkin'=>$amnt_per_day);
 				$this->admin->add_manage_pins($data);
-				redirect('admin/add_outlets');
+				redirect('admin/dashboard/add_outlets');
             }
 		}
 
