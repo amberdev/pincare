@@ -64,8 +64,8 @@ class Outlets extends REST_Controller {
             }
             else
             {
-                $data[]['status']='success';
-
+                $data['status']='success';
+                $data['message']='No data found';
                 $this->response($data, REST_Controller::HTTP_OK);
             }    
         }
