@@ -91,8 +91,7 @@ class Outlets extends REST_Controller {
        
         $check=$this->usersapi->checkAuth($postArray['token']);
 
-        if($check)
-        {
+        
             $data=$this->outletsapi->get_story();
             
 
@@ -105,17 +104,12 @@ class Outlets extends REST_Controller {
             }
             else
             {
-                $data[]['status']='success';
+                $data[]['status']='No stroy found';
 
                 $this->response($data, REST_Controller::HTTP_OK);
             }    
-        }
-        else
-        {
-            $message['status']='error';
-            $message['message']='Bad Request';
-            $this->response($message, REST_Controller::HTTP_BAD_REQUEST);
-        }
+         
+       
     }
 
 
