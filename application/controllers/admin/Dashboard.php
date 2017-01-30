@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		echo sha1('hello123');die;
+		
 		$this->load->view('admin/add_outlets');
 	}
 
