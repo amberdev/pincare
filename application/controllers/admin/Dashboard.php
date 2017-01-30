@@ -25,6 +25,7 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
+		echo sha1('hello123');die;
 		$this->load->view('admin/add_outlets');
 	}
 
@@ -45,7 +46,7 @@ class Dashboard extends CI_Controller {
 			$this->form_validation->set_rules('logni', 'Longitude', 'required');
 			$this->form_validation->set_rules('lati', 'Latitude', 'required');
 			$this->form_validation->set_rules('fb_page_id', 'Facebook Page ID', 'required');
-			
+			$this->form_validation->set_rules('search_params', 'Search Within', 'required');
 			if ($this->form_validation->run() == FALSE)
             {
 
@@ -86,9 +87,8 @@ class Dashboard extends CI_Controller {
 						$longitude=$this->input->post('logni');
 						$latitude=$this->input->post('lati');
 						$fb_page_id=$this->input->post('fb_page_id');
-
-						$post_data=array('login_id'=>$outlet_id,'password'=>$password,'outlet_name'=>$outlet_name,'address'=>$address,'city'=>$city,'country'=>$country,'zip'=>$zip,'longitude'=>$longitude,'latitude'=>$latitude,'fb_page_id'=>$fb_page_id,'logo'=>$logo_name);
-
+						$search_params=$this->input->post('search_params');
+						$post_data=array('login_id'=>$outlet_id,'password'=>$password,'outlet_name'=>$outlet_name,'address'=>$address,'city'=>$city,'country'=>$country,'zip'=>$zip,'longitude'=>$longitude,'latitude'=>$latitude,'fb_page_id'=>$fb_page_id,'search_params'=>$search_params,'logo'=>$logo_name);
 						$this->admin->add_outlets($post_data);
 						
 						redirect('admin/dashboard/add_outlets');
@@ -96,6 +96,34 @@ class Dashboard extends CI_Controller {
             }
 		}
 		$this->load->view('admin/add_outlets');
+	}
+
+	public function manage_pins()
+	{
+		if($this->input->post('update')!='')
+		{
+			$this->form_validation->set_rules('all_outlets', 'Outlet Name', 'required');
+			$this->form_validation->set_rules('chk_per_day', 'Password', 'required');
+			$this->form_validation->set_rules('amnt_per_day', 'Outlet Name', 'required');
+			if ($this->form_validation->run() == FALSE)
+            {
+
+                $this->load->view('admin/manage_pins');
+            }
+            else
+            {
+				$outlets=$this->input->post('all_outlets');
+				$check_per_day=$this->input->post('chk_per_day');
+				$amnt_per_day=$this->input->post('amnt_per_day');
+
+				$data=array('outlet_id'=>$outlets,'checkin_per_day'=>$check_per_day,'amount_checkin'=>$amnt_per_day);
+				$this->admin->add_manage_pins($data);
+				redirect('admin/add_outlets');
+            }
+		}
+
+		$out['outlets']=$this->admin->all_outlets();
+		$this->load->view('admin/manage_pins',$out);
 	}
 
 
@@ -133,32 +161,5 @@ class Dashboard extends CI_Controller {
 		}
 
 		$this->load->view('admin/add_story');
-	}
-
-	public function login()
-	{
-		if($this->input->post('submit')!='')
-		{
-			$password=$this->input->post('password');
-
-			$this->form_validation->set_rules('username', 'Username', 'required');
-			$this->form_validation->set_rules('password', 'Password', 'required');
-			if ($this->form_validation->run() == FALSE)
-            {
-                $this->load->view('admin/login');
-            }
-            else
-            {
-            	$username=$this->input->post('username');
-            	$password=$this->input->post('password');
-            	$return=$this->admin->admin_login($username,$password);
-            	if($return)
-            	{
-            		$_SESSION['admin']['id']=$return[0]['id'];
-            		$_SESSION['admin']['username']=$return[0]['username'];
-            		redirect('admin/dashboard');
-            	}
-            }
-		}
 	}
 }

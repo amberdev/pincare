@@ -49,4 +49,17 @@ class Usersapi extends CI_Model
 		}
 	}
 
+	function checkAuth($token)
+	{
+		if($token!='')
+		{
+			$this->db->where('token',$token);
+			$q=$this->db->get('tbl_users');
+			if($q->num_rows()>0)
+			{
+				return true;
+			}
+		}
+	}
+
 }

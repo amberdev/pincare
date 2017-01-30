@@ -40,5 +40,29 @@ class Admin extends CI_Model
 		$this->db->insert('tbl_story',$data);
 	}
 
+	function all_outlets()
+	{
+		$this->db->select('*');
+		$q=$this->db->get('tbl_outlets');
+		if($q->num_rows()>0)
+		{
+			return $q->result_array();
+		}
+	}
 
+	function add_manage_pins($data)
+	{
+		// if($data['outlet_id'])
+		$this->db->where('outlet_id',$data['outlet_id']);
+		$q=$this->db->get('tbl_pins');
+		if($q->num_rows()>0)
+		{
+			$this->db->where('outlet_id',$data['outlet_id']);
+			$this->db->update('tbl_pins',$data);
+		}
+		else
+		{
+			$this->db->insert('tbl_pins',$data);	
+		}
+	}
 }

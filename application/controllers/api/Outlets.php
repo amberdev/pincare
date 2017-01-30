@@ -29,6 +29,7 @@ class Outlets extends REST_Controller {
 
         // $this->load->model('outlets');
         $this->load->model('outletsapi');
+        $this->load->model('usersapi');
         // Configure limits on our controller methods
         // Ensure you have created the 'limits' table and enabled 'limits' within application/config/rest.php
         $this->methods['users_get']['limit'] = 500; // 500 requests per hour per user/key
@@ -41,23 +42,84 @@ class Outlets extends REST_Controller {
     {
         // Users from a data store e.g. database
 
-        $postData='{"latitude":"28.22","longitude":"25.65"}';
+        // $postData='{"latitude":"28.22","longitude":"25.65","token":"2fee45f97a12a3f1a9dd410c7b5f35a59c186eb8"}';
 
-        // $postData = file_get_contents("php://input");
+        $postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true); 
 
+       
+        $check=$this->usersapi->checkAuth($postArray['token']);
 
-
-        $data=$this->outletsapi->search_outlets();
-        
-         
-        if(!empty($data))
+        if($check)
         {
-            $data[]['status']='success';
+            $data=$this->outletsapi->search_outlets();
+            
 
-            $this->response($data, REST_Controller::HTTP_OK);
+            if(!empty($data))
+            {
+                $data_result['data']=$data;
+                $data_result[]['status']='success';
+                $data_result[]['token']=$postArray['token'];
+                $this->response($data_result, REST_Controller::HTTP_OK);
+            }
+            else
+            {
+                $data[]['status']='success';
+
+                $this->response($data, REST_Controller::HTTP_OK);
+            }    
+        }
+        else
+        {
+            $message['status']='error';
+            $message['message']='Bad Request';
+            $this->response($message, REST_Controller::HTTP_BAD_REQUEST);
         }
     }
+
+    
+
+    public function story_get()
+    {
+        // Users from a data store e.g. database
+
+        // $postData='{"token":"2fee45f97a12a3f1a9dd410c7b5f35a59c186eb8"}';
+
+        $postData = file_get_contents("php://input");
+        $postArray=json_decode($postData,true); 
+
+       
+        $check=$this->usersapi->checkAuth($postArray['token']);
+
+        if($check)
+        {
+            $data=$this->outletsapi->get_story();
+            
+
+            if(!empty($data))
+            {
+                $data_result['data']=$data;
+                $data_result[]['status']='success';
+                $data_result[]['token']=$postArray['token'];
+                $this->response($data_result, REST_Controller::HTTP_OK);
+            }
+            else
+            {
+                $data[]['status']='success';
+
+                $this->response($data, REST_Controller::HTTP_OK);
+            }    
+        }
+        else
+        {
+            $message['status']='error';
+            $message['message']='Bad Request';
+            $this->response($message, REST_Controller::HTTP_BAD_REQUEST);
+        }
+    }
+
+
+
 
     public function users_post()
     {

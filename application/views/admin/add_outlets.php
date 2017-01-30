@@ -31,7 +31,8 @@ $(document).ready(function(){
       country: "required",
       logni: "required",
       lati:"required",
-      fb_page_id: "required"
+      fb_page_id: "required",
+      search_params:"required"
     },
      
     messages: {
@@ -43,7 +44,8 @@ $(document).ready(function(){
       country: "Please enter country",
       logni:"Please enter your outlet longitude",
       lati:"Please enter your outlet latitude",
-      fb_page_id: "Please enter your facebook page id or page url" 
+      fb_page_id: "Please enter your facebook page id or page url",
+      search_params:"Please enter search area for outlets/mall." 
     },
     
     submitHandler: function(form) {
@@ -104,6 +106,10 @@ $(document).ready(function(){
 
         <div class="input-box">
             <input type="text" name="lati" value="" placeholder="Latitude" class="input">
+        </div>
+
+         <div class="input-box">
+            <input type="text" name="search_params" value="" placeholder="Search Within" class="input">
         </div>
 
         <div class="input-box">
