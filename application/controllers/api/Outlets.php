@@ -58,8 +58,8 @@ class Outlets extends REST_Controller {
             if(!empty($data))
             {
                 $data_result['data']=$data;
-                $data_result[]['status']='success';
-                $data_result[]['token']=$postArray['token'];
+                $data_result['status']='success';
+                $data_result['token']=$postArray['token'];
                 $this->response($data_result, REST_Controller::HTTP_OK);
             }
             else
