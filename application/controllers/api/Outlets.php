@@ -112,6 +112,16 @@ class Outlets extends REST_Controller {
        
     }
 
+    function facebook_get()
+    {
+        $url="https://graph.facebook.com/search?type=place&center=28.6266412,77.3848031&distance=100&access_token=EAADUw5iRRFgBAP6Lt2yf6asi4dZBwna75ZA7ytVZAs8BPZBPp43J8ZBILocpcC1JuwuDM1DJDdkNY18ZB051ZAtw78Luf0juDjmIqQW8nXF5riRCYVAX033oHI8CZCdd2U46IPDKgAKT89TdwkcaUhklfCFNWiTUiotXxKH26Szp4O7rv8Cn3UJlG8D5u4KyIX2yIdA31DqrDeVq7sgfpSjZCO2OnON0iumEZD";
+
+            $facebook_data=file_get_contents($url);
+
+            echo "<Pre>";
+            $data=json_decode($facebook_data);
+            print_r($data);die;
+    }
 
 
 
