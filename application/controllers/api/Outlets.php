@@ -120,7 +120,7 @@ class Outlets extends REST_Controller {
 
             echo "<Pre>";
             $data=json_decode($facebook_data,true);
-            for($i=0;$i<count($data['data']);$++)
+            for($i=0;$i<count($data['data']);$i++)
             {
                 print_r($data['data'][$i]);
             }
