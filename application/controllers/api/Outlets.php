@@ -119,7 +119,7 @@ class Outlets extends REST_Controller {
             $facebook_data=file_get_contents($url);
 
             echo "<Pre>";
-            $data=json_decode($facebook_data);
+            $data=json_decode($facebook_data,true);
             print_r($data);die;
     }
 
