@@ -38,13 +38,13 @@ class Outlets extends REST_Controller {
     }
 
 
-    public function outlets_get()
+    public function outlets_post()
     {
         // Users from a data store e.g. database
 
-        $postData='{"latitude":"28.22","longitude":"25.65","token":"2fee45f97a12a3f1a9dd410c7b5f35a59c186eb8"}';
+        // $postData='{"latitude":"28.22","longitude":"25.65","token":"2fee45f97a12a3f1a9dd410c7b5f35a59c186eb8"}';
 
-        // $postData = file_get_contents("php://input");
+        $postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true); 
 
        
@@ -53,15 +53,6 @@ class Outlets extends REST_Controller {
         if($check)
         {
             $data=$this->outletsapi->search_outlets();
-
-
-
-            $url="https://graph.facebook.com/search?type=place&center=28.6266412,77.3848031&distance=100&access_token=EAADUw5iRRFgBAP6Lt2yf6asi4dZBwna75ZA7ytVZAs8BPZBPp43J8ZBILocpcC1JuwuDM1DJDdkNY18ZB051ZAtw78Luf0juDjmIqQW8nXF5riRCYVAX033oHI8CZCdd2U46IPDKgAKT89TdwkcaUhklfCFNWiTUiotXxKH26Szp4O7rv8Cn3UJlG8D5u4KyIX2yIdA31DqrDeVq7sgfpSjZCO2OnON0iumEZD";
-
-            $facebook_data=file_get_contents($url);
-
-            echo "<pre>";
-            print_r($facebook_data);die;
             
 
             if(!empty($data))
