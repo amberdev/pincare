@@ -84,6 +84,10 @@ class Outlets extends REST_Controller {
                         {
                             $data[$i]['place_id']=$rest_details[$j]['id'];
                         }
+                        else
+                        {
+                            unset($data[$i]);
+                        }
                     }
                 }
                 
