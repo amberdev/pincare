@@ -114,7 +114,7 @@ class Outlets extends REST_Controller {
 
 
 
-            $fb_data=file_get_contents($fb_data);
+            // $fb_data=file_get_contents($fb_data);
 
             
            
