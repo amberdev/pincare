@@ -56,9 +56,65 @@ class Outlets extends REST_Controller {
 
             $latitude=$postArray['latitude'];
             $longitude=$postArray['longitude'];
-            $url="https://graph.facebook.com/search?type=place&center=$latitude,$longitude&distance=100&access_token=EAADUw5iRRFgBAP6Lt2yf6asi4dZBwna75ZA7ytVZAs8BPZBPp43J8ZBILocpcC1JuwuDM1DJDdkNY18ZB051ZAtw78Luf0juDjmIqQW8nXF5riRCYVAX033oHI8CZCdd2U46IPDKgAKT89TdwkcaUhklfCFNWiTUiotXxKH26Szp4O7rv8Cn3UJlG8D5u4KyIX2yIdA31DqrDeVq7sgfpSjZCO2OnON0iumEZD";
+            // $fb_data="https://graph.facebook.com/search?type=place&center=$latitude,$longitude&distance=100&access_token=EAADUw5iRRFgBAP6Lt2yf6asi4dZBwna75ZA7ytVZAs8BPZBPp43J8ZBILocpcC1JuwuDM1DJDdkNY18ZB051ZAtw78Luf0juDjmIqQW8nXF5riRCYVAX033oHI8CZCdd2U46IPDKgAKT89TdwkcaUhklfCFNWiTUiotXxKH26Szp4O7rv8Cn3UJlG8D5u4KyIX2yIdA31DqrDeVq7sgfpSjZCO2OnON0iumEZD";
 
-            $fb_data=file_get_contents($url);
+            $fb_data='{
+   "data": [
+      {
+         "category": "Local Business",
+         "category_list": [
+            {
+               "id": "150534008338515",
+               "name": "Barbecue Restaurant"
+            }
+         ],
+         "location": {
+            "city": "Noida",
+            "country": "India",
+            "latitude": 28.626641,
+            "longitude": 77.384803,
+            "street": "H-27/1A, Sector 63, Noida",
+            "zip": "201307"
+         },
+         "name": "The Ancient Barbeque",
+         "id": "1098864233541584"
+      },
+      {
+         "category": "Company",
+         "category_list": [
+            {
+               "id": "1706730532910578",
+               "name": "Internet Marketing Service"
+            },
+            {
+               "id": "1751954525061797",
+               "name": "Digital / Online Marketing Agency"
+            }
+         ],
+         "location": {
+            "city": "Noida",
+            "country": "India",
+            "latitude": 28.626569197572,
+            "longitude": 77.384004592896,
+            "street": "D-115, Sector 63",
+            "zip": "201301"
+         },
+         "name": "American BBQ",
+         "id": "368079396877666"
+      }
+   ],
+   "paging": {
+      "cursors": {
+         "before": "MAZDZD",
+         "after": "MQZDZD"
+      }
+   }
+}';
+
+
+
+
+            $fb_data=file_get_contents($fb_data);
 
             
            
