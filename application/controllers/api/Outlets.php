@@ -71,7 +71,7 @@ class Outlets extends REST_Controller {
            
             
 
-            if(!empty($data))
+            if(!empty($data) && !empty($rest_details))
             {
 
                 // $rest_details
