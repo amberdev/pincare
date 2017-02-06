@@ -73,8 +73,7 @@ class Outlets extends REST_Controller {
                 $rest_details[$i]['id']=$fb_data['data'][$i]['id'];                
             }
            
-            echo "<Pre>";
-            print_r($data);die;
+            
 
             if(!empty($data) && !empty($rest_details))
             {
@@ -90,6 +89,7 @@ class Outlets extends REST_Controller {
                        if($data[$i]['outlet_name']==$rest_details[$j]['name'])
                        {
                             $data[$i]['place_id']=$rest_details[$j]['id'];
+                            print_r($data[$i]);
                        }
                        else
                        {
@@ -104,6 +104,7 @@ class Outlets extends REST_Controller {
                         //     unset($data[$i]);
                         // }
                     }
+                    die;
                 }
 
                
