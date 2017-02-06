@@ -74,7 +74,7 @@ class Outlets extends REST_Controller {
             }
            
             echo "<Pre>";
-            print_r($rest_details);die;
+            print_r($data);die;
 
             if(!empty($data) && !empty($rest_details))
             {
