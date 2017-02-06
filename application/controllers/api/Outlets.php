@@ -65,8 +65,7 @@ class Outlets extends REST_Controller {
            
             $fb_data=json_decode($fb_data,true);
 
-            echo "<Pre>";
-            print_r($fb_data);die;
+            
 
             for($i=0;$i<count($fb_data['data']);$i++)
             {
@@ -74,7 +73,8 @@ class Outlets extends REST_Controller {
                 $rest_details[$i]['id']=$fb_data['data'][$i]['id'];                
             }
            
-            
+            echo "<Pre>";
+            print_r($rest_details);die;
 
             if(!empty($data) && !empty($rest_details))
             {
