@@ -61,7 +61,7 @@ class Outlets extends REST_Controller {
 
             $fb_data=file_get_contents($fb_data);
 
-            
+            echo $fb_data;die; 
            
             $fb_data=json_decode($fb_data,true);
 
@@ -89,7 +89,6 @@ class Outlets extends REST_Controller {
                        if($data[$i]['outlet_name']==$rest_details[$j]['name'])
                        {
                             $data[$i]['place_id']=$rest_details[$j]['id'];
-                            print_r($data[$i]);
                        }
                        else
                        {
@@ -104,7 +103,6 @@ class Outlets extends REST_Controller {
                         //     unset($data[$i]);
                         // }
                     }
-                    die;
                 }
 
                
