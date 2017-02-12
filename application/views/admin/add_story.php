@@ -23,11 +23,17 @@ $(document).ready(function(){
     
     rules: {
        
-      story: "required"
+      story: "required",
+      title: "required",
+      imageurl: "required",
+      description: "required"
     },
      
     messages: {
-      story: "Please select story image!!!"
+      story: "Please select story image!!!",
+      title: "Please provide title.",
+      imageurl: "Please enter image url which will be share on facebook",
+      description: "Please enter description"
     },
     
     submitHandler: function(form) {
@@ -57,13 +63,33 @@ $(document).ready(function(){
 <div class="right-container">
 <div class="add-story-container">
     <form name="add_story" action="<?php echo base_url();?>admin/dashboard/add_story" method="post" enctype="multipart/form-data">
+
         <button type="submit" name="add" value="add_stroy" class="button">Add Story</button>
         <div class="clear space40"></div>
         
+
+        
+
+
         <div class="input-box">
             <input type="file" class="button" name="story" id="story"> 
             <!-- <button type="button" name="" value="" class="delete-btn"></button> -->
         </div>
+
+
+        <div class="input-box">
+            <input type="text" name="title" value="" placeholder="Story Title" class="input">
+        </div>
+
+        <div class="input-box">
+            <input type="text" name="imageurl" value="" placeholder="image-url" class="input">
+        </div>
+
+        <div class="input-box">
+            <textarea placeholder="Description" cols="50" rows="20" name="description"></textarea>
+        </div>
+
+
         
     </form> 
 </div>        

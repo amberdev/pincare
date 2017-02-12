@@ -129,10 +129,23 @@ class Dashboard extends CI_Controller {
 
 	public function add_story()
 	{
-
 		if($this->input->post('add')!='')
 		{
-			
+			$this->form_validation->set_rules('title', 'Title', 'required');		
+			$this->form_validation->set_rules('imageurl', 'Title', 'required');
+			$this->form_validation->set_rules('description', 'Description', 'required');
+
+			if ($this->form_validation->run() == FALSE)
+            {
+
+                $this->load->view('admin/manage_pins');
+            }
+            else
+            {
+            	$title=$this->input->post('title');
+            	$imageurl=$this->input->post('imageurl');
+            	$desc=$this->input->post('description');
+
             	$base_url=$_SERVER['DOCUMENT_ROOT']."/public/upload/";
             	
 				$config['upload_path']   = $base_url; 
@@ -153,13 +166,12 @@ class Dashboard extends CI_Controller {
 					$data = array('upload_data' => $this->upload->data()); 
 					$story_name="pincare.in/public/upload/".$data['upload_data']['file_name'];
 
-					$data=array('story_image'=>$story_name);
+					$data=array('story_image'=>$story_name,'title'=>$title,'imageurl'=>$imageurl,'description'=>$desc);
 					$this->admin->add_story($data);
 					redirect('admin/dashboard/add_story');
 				}
-            
+            }
 		}
-
 		$this->load->view('admin/add_story');
 	}
 }
