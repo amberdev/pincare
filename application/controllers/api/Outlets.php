@@ -44,7 +44,7 @@ class Outlets extends REST_Controller {
 
         // $postData='{"latitude":"28.6266412","longitude":"77.3848031","token":"2fee45f97a12a3f1a9dd410c7b5f35a59c186eb8"}';
 
-        $postData = file_get_contents("php://input");
+       $postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true); 
 
        
@@ -108,7 +108,8 @@ class Outlets extends REST_Controller {
                 $data_result['data']=$data;
                 $data_result['status']='success';
                 $data_result['token']=$postArray['token'];
-                $this->response($data_result, REST_Controller::HTTP_OK);
+                echo json_encode($data_result,true);                
+//$this->response($data_result, REST_Controller::HTTP_OK);
             }
             else
             {

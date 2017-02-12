@@ -20,10 +20,16 @@
 <!-- pincare business sec starts here -->
 <div class="pincare-business-sec wrapper">
     
-    <div class="pincare-business-sec-left">
+    <!--<div class="pincare-business-sec-left">
     <h1>Pincare/ <b>Business</b></h1>
         <div class="clear space20"></div>
     <p><b>The easiest way to generate word of mouth.</b><br><br><i>We provide you with exactly what you need to get your community excited about checking in at your location!</i><br><br>Doing good is good business. The Stengel 50 – an index created by Jim Stengel, the former global CMO of Procter &amp; Gamble – posits that brands that have a social mission outperform their competition by close to 400%. 
+    </p>
+    </div>-->
+<div class="pincare-business-sec-left">
+    <h1>Pincare/ <b>Business</b></h1>
+        <div class="clear space20"></div>
+    <p><i>The easiest way to generate word of mouth.</i><br><br>We provide you with exactly what you need to get your community excited about checking in at your location!<br><br><span style="color:#fbab1e;">Doing good is good business. The Stengel 50 – an index created by Jim Stengel, the former global CMO of Procter &amp; Gamble – posits that brands that have a social mission outperform their competition by close to 400%.</span> 
     </p>
     </div>
     
