@@ -88,7 +88,7 @@ class Dashboard extends CI_Controller {
 						$latitude=$this->input->post('lati');
 						$fb_page_id=$this->input->post('fb_page_id');
 						$search_params=$this->input->post('search_params');
-						$post_data=array('login_id'=>$outlet_id,'password'=>$password,'outlet_name'=>$outlet_name,'address'=>$address,'city'=>$city,'country'=>$country,'zip'=>$zip,'longitude'=>$longitude,'latitude'=>$latitude,'fb_page_id'=>$fb_page_id,'search_params'=>$search_params,'logo'=>$logo_name);
+						$post_data=array('login_id'=>$outlet_id,'password'=>$password,'outlet_name'=>$outlet_name,'address'=>$address,'city'=>$city,'country'=>$country,'zip'=>$zip,'longitude'=>$longitude,'latitude'=>$latitude,'place_id'=>$fb_page_id,'search_params'=>$search_params,'logo'=>$logo_name);
 						$this->admin->add_outlets($post_data);
 						
 						redirect('admin/dashboard/add_outlets');
